@@ -54,7 +54,7 @@ export default function Captain() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <blockquote className="text-brand-red font-heading font-black text-2xl md:text-3xl leading-tight mb-8 border-l-4 border-brand-red pl-5">
-              "一生忘れられない一匹"
+              &ldquo;一生忘れられない一匹&rdquo;
               <br />
               <span className="text-white text-xl font-bold">をテーマにガイドしています。</span>
             </blockquote>
