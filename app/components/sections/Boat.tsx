@@ -17,7 +17,7 @@ const specs = [
 ];
 
 const images = [
-  "https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800&q=80",
+  "/boat-1.jpg",
   "https://images.unsplash.com/photo-1504983875732-7a6752f1b6c7?w=800&q=80",
   "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
   "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80",
