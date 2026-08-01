@@ -12,15 +12,16 @@ const availability = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <video autoPlay muted loop playsInline className="w-full h-full object-cover object-center">
+    <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black">
+      <div className="absolute inset-x-0 top-0 z-0 h-[64svh] min-h-[430px] max-h-[590px] overflow-hidden bg-black md:inset-0 md:h-full md:min-h-0 md:max-h-none">
+        <video autoPlay muted loop playsInline preload="metadata" className="absolute left-1/2 top-14 h-auto w-[145vw] max-w-none -translate-x-1/2 object-contain sm:top-4 sm:w-[125vw] md:static md:h-full md:w-full md:translate-x-0 md:object-cover md:object-center">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
         <div className="absolute left-[8%] top-1/4 h-72 w-72 rounded-full bg-brand-red/10 blur-[120px]" />
       </div>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-black md:hidden" />
 
       <div className="pointer-events-none absolute inset-x-0 bottom-10 z-[1] hidden overflow-hidden lg:block">
         <p className="translate-y-1/3 whitespace-nowrap text-center font-heading text-[10vw] font-black tracking-[0.16em] text-white/[0.025]">YOSHINOGAWA</p>
