@@ -6,7 +6,6 @@ import GuidePlan from "./components/sections/GuidePlan";
 import Boat from "./components/sections/Boat";
 import Price from "./components/sections/Price";
 import CalendarSection from "./components/sections/Calendar";
-import Gallery from "./components/sections/Gallery";
 import Access from "./components/sections/Access";
 import FAQ from "./components/sections/FAQ";
 import Footer from "./components/sections/Footer";
@@ -24,7 +23,6 @@ export default function Home() {
         <Boat />
         <Price />
         <CalendarSection />
-        <Gallery />
         <Access />
         <FAQ />
       </main>

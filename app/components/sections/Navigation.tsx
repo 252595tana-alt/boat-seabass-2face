@@ -12,7 +12,6 @@ const navItems = [
   { label: "船・設備", href: "#boat" },
   { label: "料金", href: "#price" },
   { label: "空き状況", href: "#calendar" },
-  { label: "釣果情報", href: "#gallery" },
   { label: "アクセス", href: "#access" },
   { label: "FAQ", href: "#faq" },
 ];

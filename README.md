@@ -55,7 +55,6 @@ LINEやYouTubeを追加する場合は、実際に開ける公式URLを確認し
 | 船・設備 | #boat |
 | 料金 | #price |
 | 空き状況 | #calendar |
-| 釣果情報 | #gallery |
 | アクセス | #access |
 | FAQ | #faq |
 
