@@ -47,7 +47,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-x-0 top-0 z-0 h-[64svh] min-h-[430px] max-h-[590px] overflow-hidden bg-black md:inset-0 md:h-full md:min-h-0 md:max-h-none">
-        <video ref={videoRef} autoPlay muted loop playsInline preload="metadata" poster="/boat-1.jpg" className="absolute left-1/2 top-14 h-auto w-[145vw] max-w-none -translate-x-1/2 object-contain sm:top-4 sm:w-[125vw] md:static md:h-full md:w-full md:translate-x-0 md:object-cover md:object-center">
+        <video ref={videoRef} autoPlay muted loop playsInline preload="metadata" className="absolute left-1/2 top-14 h-auto w-[145vw] max-w-none -translate-x-1/2 object-contain sm:top-4 sm:w-[125vw] md:static md:h-full md:w-full md:translate-x-0 md:object-cover md:object-center">
           <source media="(max-width: 767px)" src="/hero-video-mobile.mp4" type="video/mp4" />
           <source src="/hero-video-desktop.mp4" type="video/mp4" />
         </video>
