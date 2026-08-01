@@ -39,13 +39,10 @@ export default function Navigation() {
             : "border border-transparent bg-transparent"
         }`}
       >
-        <button onClick={() => handleClick("#top")} className="group flex items-center gap-3 text-left" aria-label="ページ上部へ">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-red font-heading text-lg font-black text-white shadow-lg shadow-brand-red/25 transition-transform group-hover:-rotate-6">
-            2
-          </span>
-          <span>
-            <span className="block font-heading text-lg font-black leading-none tracking-[0.18em] text-white md:text-xl">FACE</span>
-            <span className="mt-1 hidden text-[8px] font-bold tracking-[0.22em] text-gray-500 sm:block">TOKUSHIMA / YOSHINOGAWA</span>
+        <button onClick={() => handleClick("#top")} className="group flex items-center text-left" aria-label="ページ上部へ">
+          <span className="font-heading text-2xl font-black leading-none tracking-[0.14em] md:text-[28px]">
+            <span className="text-brand-red">2</span>
+            <span className="text-white">FACE</span>
           </span>
         </button>
 
