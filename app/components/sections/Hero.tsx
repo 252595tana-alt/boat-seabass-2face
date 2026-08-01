@@ -1,178 +1,102 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Youtube, MessageCircle, Calendar } from "lucide-react";
+import { Calendar, CheckCircle, HelpCircle, Instagram, MessageCircle, Youtube } from "lucide-react";
 import { INSTAGRAM_URL, LINE_URL, YOUTUBE_URL } from "../../siteConfig";
+
+const availability = [
+  { label: "今週末　ナイト便", status: "空きあり", color: "text-green-400", icon: CheckCircle },
+  { label: "平日便", status: "予約受付中", color: "text-green-400", icon: CheckCircle },
+  { label: "アカメ便", status: "要相談", color: "text-yellow-400", icon: HelpCircle },
+];
 
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Background Video */}
+    <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover object-center"
-        >
+        <video autoPlay muted loop playsInline className="w-full h-full object-cover object-center">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-16">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
-          {/* Left: Headline */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Brand */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-2"
-            >
-              <span className="font-heading text-brand-red text-sm tracking-[0.4em] uppercase font-bold">
-                BOAT SEABASS
-              </span>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-2">
+              <span className="font-heading text-brand-red text-sm tracking-[0.4em] uppercase font-bold">BOAT SEABASS</span>
             </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-heading font-black text-6xl md:text-8xl lg:text-9xl tracking-wider text-white mb-6"
-            >
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="font-heading font-black text-6xl md:text-8xl lg:text-9xl tracking-wider text-white mb-6">
               2FACE
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2"
-            >
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
               徳島・吉野川で、
             </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-2xl md:text-3xl font-bold text-white leading-tight mb-10"
-            >
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="text-2xl md:text-3xl font-bold text-white leading-tight mb-10">
               一生忘れられない一匹を。
             </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <a
-                href={LINE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold text-lg px-8 py-4 rounded-full transition-all pulse-red shadow-lg shadow-brand-red/30"
-              >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold text-lg px-8 py-4 rounded-full transition-all pulse-red shadow-lg shadow-brand-red/30">
                 <MessageCircle size={22} />
                 LINEで予約相談
               </a>
-              <button
-                onClick={() => {
-                  document.querySelector("#plan")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-medium text-base px-8 py-4 rounded-full transition-all backdrop-blur-sm"
-              >
+              <button onClick={() => document.querySelector("#plan")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-medium text-base px-8 py-4 rounded-full transition-all backdrop-blur-sm">
                 ガイドプランを見る
               </button>
             </motion.div>
 
-            {/* Social */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              className="flex gap-4 mt-8 justify-center lg:justify-start"
-            >
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider"
-              >
-                @boat_seabass_2face
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.9 }} className="flex gap-4 mt-8 justify-center lg:justify-start">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1">
+                <Instagram size={14} /> @boat_seabass_2face
               </a>
-              <a
-                href={YOUTUBE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1"
-                aria-label="YouTube公式チャンネル"
-              >
-                <Youtube size={14} />
-                YouTube
+              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1" aria-label="YouTube公式チャンネル">
+                <Youtube size={14} /> YouTube
               </a>
             </motion.div>
           </div>
 
-          {/* Right: Availability Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="w-full lg:w-72 shrink-0"
-          >
-            <div className="bg-black/70 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl">
-              <h3 className="text-white font-bold text-sm tracking-widest uppercase mb-4 border-b border-white/10 pb-3">
-                直近の空き状況
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                出船予定と最新の釣果は公式Instagramで更新しています。
-                ご予約・希望日はLINEでお問い合わせください。
-              </p>
-              <a
-                href={LINE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 flex items-center justify-center gap-2 border border-white/20 hover:border-brand-red text-white hover:text-brand-red text-sm py-2.5 rounded-xl transition-colors w-full"
-              >
-                <MessageCircle size={15} />
-                LINEで予約相談
+          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="w-full lg:w-80 shrink-0">
+            <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-black/65 p-5 shadow-2xl shadow-black/40 backdrop-blur-xl">
+              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-red/20 blur-3xl" />
+              <div className="relative">
+                <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+                  <div>
+                    <p className="mb-1 text-[10px] font-bold tracking-[0.25em] text-brand-red uppercase">LIVE AVAILABILITY</p>
+                    <h3 className="text-white font-bold text-base">直近の空き状況</h3>
+                  </div>
+                  <span className="flex items-center gap-1.5 rounded-full border border-green-400/20 bg-green-400/10 px-2.5 py-1 text-[10px] font-medium text-green-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.9)]" />
+                    更新中
+                  </span>
+                </div>
+              <div className="space-y-2.5">
+                {availability.map((item) => (
+                  <div key={item.label} className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.04] px-3 py-2.5">
+                    <span className="text-gray-200 text-xs">{item.label}</span>
+                    <div className="flex items-center gap-1.5">
+                      <item.icon size={14} className={item.color} />
+                      <span className={`text-xs font-bold ${item.color}`}>{item.status}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <a href="#calendar" className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-red px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-red/20 transition-all hover:bg-brand-red-dark hover:shadow-brand-red/40">
+                <Calendar size={16} /> Googleカレンダーで確認
               </a>
-              <a
-                href="#calendar"
-                className="mt-2 flex items-center justify-center gap-2 text-gray-400 hover:text-white text-xs py-2 transition-colors w-full"
-              >
-                <Calendar size={14} />
-                予約方法を見る
+              <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-white/15 py-2.5 text-xs font-medium text-gray-300 transition-colors hover:border-white/35 hover:text-white w-full">
+                <MessageCircle size={14} /> 空き確認後、LINEで予約相談
               </a>
+              </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-gray-400 text-xs tracking-widest font-heading uppercase">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-0.5 h-8 bg-gradient-to-b from-brand-red to-transparent"
-        />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-gray-400 text-xs tracking-widest font-heading uppercase">Scroll</span>
+        <div className="w-px h-12 bg-gradient-to-b from-brand-red to-transparent" />
       </motion.div>
     </section>
   );
