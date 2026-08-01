@@ -31,6 +31,7 @@ export default function CalendarSection() {
                   className="w-full h-[480px] md:h-[560px]"
                   frameBorder="0"
                   scrolling="no"
+                  loading="lazy"
                   title="空き状況カレンダー"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-brand-gray/95 rounded-b-2xl">

@@ -47,6 +47,13 @@ main > section:nth-of-type(even):not(#top) {
     linear-gradient(315deg, rgba(255, 255, 255, 0.012), transparent 34%);
 }
 
+@supports (content-visibility: auto) {
+  main > section:not(#top) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}
+
 a, button {
   -webkit-tap-highlight-color: transparent;
 }
@@ -146,5 +153,18 @@ button:focus-visible {
 @media (max-width: 768px) {
   .mobile-cta-spacer {
     height: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

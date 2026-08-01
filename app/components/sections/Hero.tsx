@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Calendar, CheckCircle, HelpCircle, Instagram, MessageCircle, Youtube } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { INSTAGRAM_URL, LINE_URL, YOUTUBE_URL } from "../../siteConfig";
 
 const availability = [
@@ -11,11 +12,44 @@ const availability = [
 ];
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    let isVisible = true;
+    const syncPlayback = () => {
+      if (isVisible && !document.hidden) {
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        syncPlayback();
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(video);
+    document.addEventListener("visibilitychange", syncPlayback);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", syncPlayback);
+    };
+  }, []);
+
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-x-0 top-0 z-0 h-[64svh] min-h-[430px] max-h-[590px] overflow-hidden bg-black md:inset-0 md:h-full md:min-h-0 md:max-h-none">
-        <video autoPlay muted loop playsInline preload="metadata" className="absolute left-1/2 top-14 h-auto w-[145vw] max-w-none -translate-x-1/2 object-contain sm:top-4 sm:w-[125vw] md:static md:h-full md:w-full md:translate-x-0 md:object-cover md:object-center">
-          <source src="/hero-video.mp4" type="video/mp4" />
+        <video ref={videoRef} autoPlay muted loop playsInline preload="metadata" poster="/boat-1.jpg" className="absolute left-1/2 top-14 h-auto w-[145vw] max-w-none -translate-x-1/2 object-contain sm:top-4 sm:w-[125vw] md:static md:h-full md:w-full md:translate-x-0 md:object-cover md:object-center">
+          <source media="(max-width: 767px)" src="/hero-video-mobile.mp4" type="video/mp4" />
+          <source src="/hero-video-desktop.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
