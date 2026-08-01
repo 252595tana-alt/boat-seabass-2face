@@ -101,14 +101,6 @@ export default function Boat() {
               ))}
             </div>
 
-            <button
-              onClick={() =>
-                document.querySelector("#captain")?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="mt-8 border border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-medium px-6 py-2.5 rounded-full text-sm transition-all"
-            >
-              船長について詳しく見る
-            </button>
           </motion.div>
         </div>
       </div>

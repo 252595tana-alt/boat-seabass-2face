@@ -81,7 +81,7 @@ export default function Access() {
                 <span className="text-brand-red font-bold">集合場所：</span>
                 四国マリーナ（徳島市川内町）です。
                 駐車場は無料でご利用いただけます。
-                集合時間の詳細は公式InstagramのDMにてご確認ください。
+                集合時間の詳細はLINEにてご確認ください。
               </p>
             </div>
           </motion.div>

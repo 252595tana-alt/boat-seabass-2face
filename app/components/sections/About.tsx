@@ -98,14 +98,6 @@ export default function About() {
               ))}
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => document.querySelector("#captain")?.scrollIntoView({ behavior: "smooth" })}
-              className="mt-8 border border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-medium px-6 py-2.5 rounded-full text-sm transition-all"
-            >
-              詳しく見る
-            </motion.button>
           </motion.div>
         </div>
       </div>

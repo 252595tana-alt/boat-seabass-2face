@@ -1,4 +1,5 @@
 export const INSTAGRAM_URL = "https://www.instagram.com/boat_seabass_2face/";
+export const LINE_URL = "https://line.me/R/ti/p/@2face";
 export const YOUTUBE_URL = "https://www.youtube.com/@lifeismaxbet";
 
 export const MARINA_NAME = "四国マリーナ";

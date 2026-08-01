@@ -1,7 +1,7 @@
 "use client";
 
-import { Instagram, Youtube, ChevronUp } from "lucide-react";
-import { INSTAGRAM_URL, YOUTUBE_URL, MARINA_ADDRESS } from "../../siteConfig";
+import { Instagram, Youtube, MessageCircle, ChevronUp } from "lucide-react";
+import { INSTAGRAM_URL, LINE_URL, YOUTUBE_URL, MARINA_ADDRESS } from "../../siteConfig";
 
 const footerLinks = {
   left: [
@@ -9,7 +9,6 @@ const footerLinks = {
     { label: "2FACEについて", href: "#about" },
     { label: "ガイドプラン", href: "#plan" },
     { label: "船・設備", href: "#boat" },
-    { label: "船長紹介", href: "#captain" },
   ],
   right: [
     { label: "料金", href: "#price" },
@@ -35,13 +34,13 @@ export default function Footer() {
             徳島・吉野川で、最高の一匹を。
           </h2>
           <a
-            href={INSTAGRAM_URL}
+            href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-brand-red font-bold px-8 py-4 rounded-full text-base hover:bg-gray-100 transition-colors shadow-lg"
           >
-            <Instagram size={20} />
-            Instagramで予約相談
+            <MessageCircle size={20} />
+            LINEで予約相談
           </a>
         </div>
       </div>

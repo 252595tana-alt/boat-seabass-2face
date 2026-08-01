@@ -1,91 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar as CalIcon, Instagram, MessageCircle, Users } from "lucide-react";
+import { MessageCircle, Calendar as CalIcon } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
-import { INSTAGRAM_URL } from "../../siteConfig";
-
-const bookingSteps = [
-  {
-    icon: CalIcon,
-    title: "希望日を決める",
-    description: "希望日・時間帯と、狙いたい魚を決めます。",
-  },
-  {
-    icon: Users,
-    title: "人数を知らせる",
-    description: "乗船人数と、チャーター・乗り合いの希望をお知らせください。",
-  },
-  {
-    icon: MessageCircle,
-    title: "Instagramで相談",
-    description: "公式アカウントのDMで空き状況を確認し、予約を確定します。",
-  },
-];
+import { LINE_URL } from "../../siteConfig";
 
 export default function CalendarSection() {
   return (
     <section id="calendar" className="py-24 bg-brand-dark">
       <div className="max-w-7xl mx-auto px-4">
-        <SectionHeading en="AVAILABILITY" ja="空き状況・ご予約" />
+        <SectionHeading en="AVAILABILITY" ja="空き状況カレンダー" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* Calendar embed */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-3 rounded-2xl border border-white/5 bg-brand-gray p-8 md:p-12 flex flex-col justify-center"
+            className="lg:col-span-2"
           >
-            <div className="w-14 h-14 rounded-full bg-brand-red/10 flex items-center justify-center mb-6">
-              <CalIcon size={26} className="text-brand-red" />
+            <div className="bg-brand-gray rounded-2xl overflow-hidden border border-white/5">
+              <div className="p-4 border-b border-white/5 flex items-center gap-2">
+                <CalIcon size={16} className="text-brand-red" />
+                <span className="text-white font-medium text-sm">空き状況カレンダー</span>
+              </div>
+              <div className="relative">
+                <iframe
+                  src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=Asia%2FTokyo&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%231A1A1A&color=%23E63329"
+                  className="w-full h-[480px] md:h-[560px]"
+                  frameBorder="0"
+                  scrolling="no"
+                  title="空き状況カレンダー"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-brand-gray/95 rounded-b-2xl">
+                  <div className="text-center p-8">
+                    <CalIcon size={48} className="text-brand-red mx-auto mb-4 opacity-60" />
+                    <p className="text-white font-bold text-lg mb-2">Googleカレンダー</p>
+                    <p className="text-gray-400 text-sm mb-6">
+                      実際の空き状況はGoogleカレンダーでご確認いただけます。
+                      <br />
+                      カレンダーIDを設定することで自動表示されます。
+                    </p>
+                    <a
+                      href="https://calendar.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-brand-red text-brand-red hover:bg-brand-red hover:text-white px-6 py-2.5 rounded-full text-sm transition-all font-medium"
+                    >
+                      <CalIcon size={16} />
+                      Googleカレンダーで確認
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="font-heading text-xs font-bold tracking-[0.24em] text-brand-red mb-3">
-              LATEST AVAILABILITY
+            <p className="text-gray-500 text-xs mt-3">
+              ※ 最新の情報はLINEにてお問い合わせください。
             </p>
-            <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">
-              最新の空き状況は公式Instagramへ
-            </h3>
-            <p className="text-gray-300 leading-relaxed max-w-2xl mb-8">
-              出船予定や最新の釣果を随時更新しています。希望日が決まっている方は、
-              InstagramのDMからお気軽にお問い合わせください。
-            </p>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-bold px-7 py-3.5 rounded-full text-sm transition-all shadow-lg shadow-brand-red/20"
-            >
-              <Instagram size={18} />
-              空き状況を確認・予約相談する
-            </a>
           </motion.div>
 
+          {/* Sidebar */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="lg:col-span-2 rounded-2xl border border-white/5 bg-brand-gray p-6"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="space-y-4"
           >
-            <h3 className="text-white font-bold text-lg mb-5">ご予約の流れ</h3>
-            <div className="space-y-5">
-              {bookingSteps.map((step, index) => (
-                <div key={step.title} className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-brand-red/10 flex items-center justify-center shrink-0">
-                    <step.icon size={18} className="text-brand-red" />
+            <div className="bg-brand-gray border border-white/5 rounded-2xl p-5">
+              <h4 className="text-white font-bold text-sm mb-4">カレンダー凡例</h4>
+              <div className="space-y-2.5">
+                {[
+                  { color: "bg-green-500", label: "空きあり" },
+                  { color: "bg-yellow-500", label: "要相談" },
+                  { color: "bg-red-600", label: "満船" },
+                  { color: "bg-gray-600", label: "休船" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2.5">
+                    <div className={`w-3 h-3 rounded-full ${item.color}`} />
+                    <span className="text-gray-300 text-sm">{item.label}</span>
                   </div>
-                  <div>
-                    <p className="text-white font-bold text-sm">
-                      <span className="text-brand-red mr-2">{index + 1}.</span>
-                      {step.title}
-                    </p>
-                    <p className="text-gray-400 text-sm leading-relaxed mt-1">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-brand-red/10 border border-brand-red/30 rounded-2xl p-5">
+              <h4 className="text-white font-bold mb-2">ご予約・お問い合わせ</h4>
+              <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                ご予約はLINEから簡単に受け付けております。お気軽にご連絡ください。
+              </p>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-bold px-5 py-3 rounded-full text-sm transition-all w-full"
+              >
+                <MessageCircle size={16} />
+                LINEで予約・お問い合わせ
+              </a>
             </div>
           </motion.div>
         </div>

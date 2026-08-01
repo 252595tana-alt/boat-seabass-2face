@@ -4,7 +4,6 @@ import About from "./components/sections/About";
 import TargetFish from "./components/sections/TargetFish";
 import GuidePlan from "./components/sections/GuidePlan";
 import Boat from "./components/sections/Boat";
-import Captain from "./components/sections/Captain";
 import Price from "./components/sections/Price";
 import CalendarSection from "./components/sections/Calendar";
 import Gallery from "./components/sections/Gallery";
@@ -23,7 +22,6 @@ export default function Home() {
         <TargetFish />
         <GuidePlan />
         <Boat />
-        <Captain />
         <Price />
         <CalendarSection />
         <Gallery />

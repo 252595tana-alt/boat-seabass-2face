@@ -33,7 +33,7 @@ npm start
 ## カスタマイズポイント
 
 ### 1. 予約・SNSリンク
-公式InstagramとYouTubeのリンクは `app/siteConfig.ts` の `INSTAGRAM_URL` / `YOUTUBE_URL` で一元管理しています。予約相談はInstagramのDMへ誘導しています。
+公式Instagram・LINE・YouTubeのリンクは `app/siteConfig.ts` の `INSTAGRAM_URL` / `LINE_URL` / `YOUTUBE_URL` で一元管理しています。予約相談はLINEへ誘導しています。
 LINEやYouTubeを追加する場合は、実際に開ける公式URLを確認してから設定してください。
 
 ### 2. 画像
@@ -53,7 +53,6 @@ LINEやYouTubeを追加する場合は、実際に開ける公式URLを確認し
 | 2FACEについて | #about |
 | ガイドプラン | #plan |
 | 船・設備 | #boat |
-| 船長紹介 | #captain |
 | 料金 | #price |
 | 空き状況 | #calendar |
 | 釣果情報 | #gallery |

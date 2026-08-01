@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
-import { Instagram, Info } from "lucide-react";
-import { INSTAGRAM_URL } from "../../siteConfig";
+import { MessageCircle, Info } from "lucide-react";
+import { LINE_URL } from "../../siteConfig";
 
 const plans = [
   {
@@ -136,13 +136,13 @@ export default function Price() {
         {/* CTA */}
         <div className="text-center mt-10">
           <a
-            href={INSTAGRAM_URL}
+            href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-bold px-8 py-4 rounded-full text-base transition-all pulse-red shadow-lg shadow-brand-red/20"
           >
-            <Instagram size={20} />
-            Instagramで予約・お問い合わせ
+            <MessageCircle size={20} />
+            LINEで予約・お問い合わせ
           </a>
         </div>
       </div>

@@ -2,15 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Instagram } from "lucide-react";
-import { INSTAGRAM_URL } from "../../siteConfig";
+import { Menu, X, MessageCircle } from "lucide-react";
+import { LINE_URL } from "../../siteConfig";
 
 const navItems = [
   { label: "TOP", href: "#top" },
   { label: "2FACEについて", href: "#about" },
   { label: "ガイドプラン", href: "#plan" },
   { label: "船・設備", href: "#boat" },
-  { label: "船長紹介", href: "#captain" },
   { label: "料金", href: "#price" },
   { label: "空き状況", href: "#calendar" },
   { label: "釣果情報", href: "#gallery" },
@@ -65,13 +64,13 @@ export default function Navigation() {
 
         {/* Reservation CTA */}
         <a
-          href={INSTAGRAM_URL}
+          href={LINE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white text-sm font-bold px-4 py-2 rounded-full transition-colors"
         >
-          <Instagram size={16} />
-          予約相談
+          <MessageCircle size={16} />
+          LINEで予約する
         </a>
 
         {/* Mobile hamburger */}
@@ -105,13 +104,13 @@ export default function Navigation() {
               ))}
               <div className="px-6 pt-4 pb-2">
                 <a
-                  href={INSTAGRAM_URL}
+                  href={LINE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-full w-full"
                 >
-                  <Instagram size={18} />
-                  Instagramで予約相談
+                  <MessageCircle size={18} />
+                  LINEで予約する
                 </a>
               </div>
             </nav>

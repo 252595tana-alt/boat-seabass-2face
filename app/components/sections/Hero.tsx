@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Calendar } from "lucide-react";
-import { INSTAGRAM_URL, YOUTUBE_URL } from "../../siteConfig";
+import { Instagram, Youtube, MessageCircle, Calendar } from "lucide-react";
+import { INSTAGRAM_URL, LINE_URL, YOUTUBE_URL } from "../../siteConfig";
 
 export default function Hero() {
   return (
@@ -76,13 +76,13 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
-                href={INSTAGRAM_URL}
+                href={LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold text-lg px-8 py-4 rounded-full transition-all pulse-red shadow-lg shadow-brand-red/30"
               >
-                <Instagram size={22} />
-                Instagramで予約相談
+                <MessageCircle size={22} />
+                LINEで予約相談
               </a>
               <button
                 onClick={() => {
@@ -135,16 +135,16 @@ export default function Hero() {
               </h3>
               <p className="text-gray-300 text-sm leading-relaxed">
                 出船予定と最新の釣果は公式Instagramで更新しています。
-                希望日はDMでお問い合わせください。
+                ご予約・希望日はLINEでお問い合わせください。
               </p>
               <a
-                href={INSTAGRAM_URL}
+                href={LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 flex items-center justify-center gap-2 border border-white/20 hover:border-brand-red text-white hover:text-brand-red text-sm py-2.5 rounded-xl transition-colors w-full"
               >
-                <Instagram size={15} />
-                公式Instagramで確認
+                <MessageCircle size={15} />
+                LINEで予約相談
               </a>
               <a
                 href="#calendar"
