@@ -9,10 +9,9 @@ export default function CalendarSection() {
   return (
     <section id="calendar" className="py-24 bg-brand-dark">
       <div className="max-w-7xl mx-auto px-4">
-        <SectionHeading en="AVAILABILITY" ja="空き状況カレンダー" />
+        <SectionHeading en="AVAILABILITY" ja="空き状況・予約相談" />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Calendar embed */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -23,36 +22,26 @@ export default function CalendarSection() {
             <div className="bg-brand-gray rounded-2xl overflow-hidden border border-white/5">
               <div className="p-4 border-b border-white/5 flex items-center gap-2">
                 <CalIcon size={16} className="text-brand-red" />
-                <span className="text-white font-medium text-sm">空き状況カレンダー</span>
+                <span className="text-white font-medium text-sm">最新の空き状況</span>
               </div>
-              <div className="relative">
-                <iframe
-                  src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=Asia%2FTokyo&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%231A1A1A&color=%23E63329"
-                  className="w-full h-[480px] md:h-[560px]"
-                  frameBorder="0"
-                  scrolling="no"
-                  loading="lazy"
-                  title="空き状況カレンダー"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-brand-gray/95 rounded-b-2xl">
-                  <div className="text-center p-8">
-                    <CalIcon size={48} className="text-brand-red mx-auto mb-4 opacity-60" />
-                    <p className="text-white font-bold text-lg mb-2">Googleカレンダー</p>
-                    <p className="text-gray-400 text-sm mb-6">
-                      実際の空き状況はGoogleカレンダーでご確認いただけます。
-                      <br />
-                      カレンダーIDを設定することで自動表示されます。
-                    </p>
-                    <a
-                      href="https://calendar.google.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-brand-red text-brand-red hover:bg-brand-red hover:text-white px-6 py-2.5 rounded-full text-sm transition-all font-medium"
-                    >
-                      <CalIcon size={16} />
-                      Googleカレンダーで確認
-                    </a>
+              <div className="flex min-h-[420px] items-center justify-center p-8 md:min-h-[500px]">
+                <div className="max-w-lg text-center">
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-brand-red/30 bg-brand-red/10">
+                    <MessageCircle size={28} className="text-brand-red" />
                   </div>
+                  <p className="mb-3 text-2xl font-bold text-white">空き状況はLINEでご案内します</p>
+                  <p className="mb-8 text-sm leading-relaxed text-gray-400">
+                    希望日・人数・ご希望のプランをお送りください。最新の出船状況を確認してご返信します。
+                  </p>
+                  <a
+                    href={LINE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-red px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-red/20 transition-all hover:bg-brand-red-dark"
+                  >
+                    <MessageCircle size={17} />
+                    LINEで空き状況を確認
+                  </a>
                 </div>
               </div>
             </div>
@@ -70,7 +59,7 @@ export default function CalendarSection() {
             className="space-y-4"
           >
             <div className="bg-brand-gray border border-white/5 rounded-2xl p-5">
-              <h4 className="text-white font-bold text-sm mb-4">カレンダー凡例</h4>
+              <h4 className="text-white font-bold text-sm mb-4">空き状況の目安</h4>
               <div className="space-y-2.5">
                 {[
                   { color: "bg-green-500", label: "空きあり" },

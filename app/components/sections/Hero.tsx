@@ -139,7 +139,7 @@ export default function Hero() {
                 ))}
               </div>
               <a href="#calendar" className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-red px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-red/20 transition-all hover:bg-brand-red-dark hover:shadow-brand-red/40">
-                <Calendar size={16} /> Googleカレンダーで確認
+                <Calendar size={16} /> 空き状況を確認
               </a>
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-white/15 py-2.5 text-xs font-medium text-gray-300 transition-colors hover:border-white/35 hover:text-white w-full">
                 <MessageCircle size={14} /> 空き確認後、LINEで予約相談
