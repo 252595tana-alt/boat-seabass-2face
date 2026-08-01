@@ -11,20 +11,22 @@ interface SectionHeadingProps {
 export default function SectionHeading({ en, ja, center = false }: SectionHeadingProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className={`mb-12 ${center ? "text-center" : ""}`}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      className={`mb-14 md:mb-16 ${center ? "text-center" : ""}`}
     >
-      <div className={`flex items-center gap-3 ${center ? "justify-center" : ""}`}>
-        <span className="w-1 h-10 bg-brand-red inline-block rounded-full" />
-        <h2 className="font-heading font-black text-3xl md:text-4xl tracking-wider text-white uppercase">
-          {en}
-        </h2>
+      <div className={`mb-4 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+        <span className="h-px w-9 bg-brand-red" />
+        <span className="font-heading text-[10px] font-bold tracking-[0.3em] text-brand-red">BOAT SEABASS 2FACE</span>
+        {center && <span className="h-px w-9 bg-brand-red" />}
       </div>
+      <h2 className="gradient-text font-heading text-4xl font-black leading-none tracking-[0.06em] md:text-6xl">
+        {en}
+      </h2>
       {ja && (
-        <p className="mt-2 text-gray-400 text-sm md:text-base font-sans ml-7">
+        <p className={`mt-4 text-xs font-medium tracking-[0.18em] text-gray-400 md:text-sm ${center ? "" : "ml-1"}`}>
           {ja}
         </p>
       )}

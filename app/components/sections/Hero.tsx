@@ -12,22 +12,30 @@ const availability = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <video autoPlay muted loop playsInline className="w-full h-full object-cover object-center">
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+        <div className="absolute left-[8%] top-1/4 h-72 w-72 rounded-full bg-brand-red/10 blur-[120px]" />
+      </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-10 z-[1] hidden overflow-hidden lg:block">
+        <p className="translate-y-1/3 whitespace-nowrap text-center font-heading text-[10vw] font-black tracking-[0.16em] text-white/[0.025]">YOSHINOGAWA</p>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-16">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
           <div className="flex-1 text-center lg:text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-2">
-              <span className="font-heading text-brand-red text-sm tracking-[0.4em] uppercase font-bold">BOAT SEABASS</span>
+              <span className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/25 px-4 py-2 font-heading text-[10px] font-bold tracking-[0.3em] text-gray-200 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-red shadow-[0_0_12px_rgba(230,51,41,0.9)]" />
+                TOKUSHIMA / YOSHINOGAWA
+              </span>
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="font-heading font-black text-6xl md:text-8xl lg:text-9xl tracking-wider text-white mb-6">
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="gradient-text mt-5 font-heading font-black text-7xl md:text-8xl lg:text-[9rem] leading-[0.82] tracking-[0.04em] mb-8 drop-shadow-2xl">
               2FACE
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
@@ -54,6 +62,19 @@ export default function Hero() {
               <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1" aria-label="YouTube公式チャンネル">
                 <Youtube size={14} /> YouTube
               </a>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="mt-8 flex items-center justify-center gap-5 text-left lg:justify-start">
+              {[
+                ["27FT", "CUSTOM BOAT"],
+                ["MAX 7", "CAPACITY"],
+                ["ALL", "SEASON"],
+              ].map(([value, label], index) => (
+                <div key={value} className={`pr-5 ${index < 2 ? "border-r border-white/10" : ""}`}>
+                  <p className="font-heading text-sm font-black tracking-wider text-white">{value}</p>
+                  <p className="mt-0.5 text-[8px] font-bold tracking-[0.2em] text-gray-500">{label}</p>
+                </div>
+              ))}
             </motion.div>
           </div>
 
