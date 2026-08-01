@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { INSTAGRAM_URL } from "../../siteConfig";
 
 export default function MobileCTA() {
   const [visible, setVisible] = useState(false);
@@ -25,13 +26,13 @@ export default function MobileCTA() {
         >
           <div className="bg-black/95 backdrop-blur-md border-t border-white/10 px-4 py-3 safe-area-bottom">
             <a
-              href="https://line.me/R/ti/p/@2face"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-brand-red text-white font-bold px-6 py-3.5 rounded-full w-full text-base shadow-lg shadow-brand-red/30"
             >
-              <MessageCircle size={20} />
-              LINEで予約する
+              <Instagram size={20} />
+              Instagramで予約相談
             </a>
           </div>
         </motion.div>

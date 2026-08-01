@@ -1,13 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Calendar, CheckCircle, HelpCircle } from "lucide-react";
-
-const availability = [
-  { label: "今週末　ナイト便", status: "空きあり", color: "text-green-400", icon: CheckCircle },
-  { label: "平日便", status: "予約受付中", color: "text-green-400", icon: CheckCircle },
-  { label: "アカメ便", status: "要相談", color: "text-yellow-400", icon: HelpCircle },
-];
+import { Instagram, Youtube, Calendar } from "lucide-react";
+import { INSTAGRAM_URL, YOUTUBE_URL } from "../../siteConfig";
 
 export default function Hero() {
   return (
@@ -81,13 +76,13 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
-                href="https://line.me/R/ti/p/@2face"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold text-lg px-8 py-4 rounded-full transition-all pulse-red shadow-lg shadow-brand-red/30"
               >
-                <MessageCircle size={22} />
-                LINEで予約する
+                <Instagram size={22} />
+                Instagramで予約相談
               </a>
               <button
                 onClick={() => {
@@ -107,16 +102,21 @@ export default function Hero() {
               className="flex gap-4 mt-8 justify-center lg:justify-start"
             >
               <a
-                href="#"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider"
               >
-                Instagram
+                @boat_seabass_2face
               </a>
-              <span className="text-gray-600">|</span>
               <a
-                href="#"
-                className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider"
+                href={YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1"
+                aria-label="YouTube公式チャンネル"
               >
+                <Youtube size={14} />
                 YouTube
               </a>
             </motion.div>
@@ -133,25 +133,25 @@ export default function Hero() {
               <h3 className="text-white font-bold text-sm tracking-widest uppercase mb-4 border-b border-white/10 pb-3">
                 直近の空き状況
               </h3>
-              <div className="space-y-3">
-                {availability.map((item) => (
-                  <div key={item.label} className="flex items-center justify-between">
-                    <span className="text-gray-300 text-sm">{item.label}</span>
-                    <div className="flex items-center gap-1.5">
-                      <item.icon size={14} className={item.color} />
-                      <span className={`text-sm font-medium ${item.color}`}>{item.status}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                出船予定と最新の釣果は公式Instagramで更新しています。
+                希望日はDMでお問い合わせください。
+              </p>
               <a
-                href="https://calendar.google.com"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 flex items-center justify-center gap-2 border border-white/20 hover:border-brand-red text-white hover:text-brand-red text-sm py-2.5 rounded-xl transition-colors w-full"
               >
-                <Calendar size={15} />
-                空き状況カレンダーを見る
+                <Instagram size={15} />
+                公式Instagramで確認
+              </a>
+              <a
+                href="#calendar"
+                className="mt-2 flex items-center justify-center gap-2 text-gray-400 hover:text-white text-xs py-2 transition-colors w-full"
+              >
+                <Calendar size={14} />
+                予約方法を見る
               </a>
             </div>
           </motion.div>

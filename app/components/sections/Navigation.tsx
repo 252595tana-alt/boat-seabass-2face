@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
+import { INSTAGRAM_URL } from "../../siteConfig";
 
 const navItems = [
   { label: "TOP", href: "#top" },
@@ -62,15 +63,15 @@ export default function Navigation() {
           ))}
         </nav>
 
-        {/* LINE CTA */}
+        {/* Reservation CTA */}
         <a
-          href="https://line.me/R/ti/p/@2face"
+          href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white text-sm font-bold px-4 py-2 rounded-full transition-colors"
         >
-          <MessageCircle size={16} />
-          LINEで予約する
+          <Instagram size={16} />
+          予約相談
         </a>
 
         {/* Mobile hamburger */}
@@ -104,13 +105,13 @@ export default function Navigation() {
               ))}
               <div className="px-6 pt-4 pb-2">
                 <a
-                  href="https://line.me/R/ti/p/@2face"
+                  href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-brand-red text-white font-bold px-6 py-3 rounded-full w-full"
                 >
-                  <MessageCircle size={18} />
-                  LINEで予約する
+                  <Instagram size={18} />
+                  Instagramで予約相談
                 </a>
               </div>
             </nav>

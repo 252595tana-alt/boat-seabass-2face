@@ -1,6 +1,7 @@
 "use client";
 
-import { Instagram, Youtube, MessageCircle, ChevronUp } from "lucide-react";
+import { Instagram, Youtube, ChevronUp } from "lucide-react";
+import { INSTAGRAM_URL, YOUTUBE_URL, MARINA_ADDRESS } from "../../siteConfig";
 
 const footerLinks = {
   left: [
@@ -34,13 +35,13 @@ export default function Footer() {
             徳島・吉野川で、最高の一匹を。
           </h2>
           <a
-            href="https://line.me/R/ti/p/@2face"
+            href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-brand-red font-bold px-8 py-4 rounded-full text-base hover:bg-gray-100 transition-colors shadow-lg"
           >
-            <MessageCircle size={20} />
-            LINEで予約する
+            <Instagram size={20} />
+            Instagramで予約相談
           </a>
         </div>
       </div>
@@ -61,12 +62,12 @@ export default function Footer() {
               <br />
               集合場所：四国マリーナ
               <br />
-              住所：徳島県徳島市川内町鈴江西127-5
+              住所：{MARINA_ADDRESS}
             </p>
             {/* Social */}
             <div className="flex gap-3">
               <a
-                href="https://instagram.com"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-colors"
@@ -75,22 +76,13 @@ export default function Footer() {
                 <Instagram size={16} />
               </a>
               <a
-                href="https://youtube.com"
+                href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube size={16} />
-              </a>
-              <a
-                href="https://line.me/R/ti/p/@2face"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-brand-red flex items-center justify-center text-white hover:bg-brand-red-dark transition-colors"
-                aria-label="LINE"
-              >
-                <MessageCircle size={16} />
               </a>
             </div>
           </div>

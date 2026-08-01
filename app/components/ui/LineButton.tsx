@@ -1,7 +1,8 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { motion } from "framer-motion";
+import { INSTAGRAM_URL } from "../../siteConfig";
 
 interface LineButtonProps {
   className?: string;
@@ -12,7 +13,7 @@ interface LineButtonProps {
 export default function LineButton({
   className = "",
   size = "md",
-  href = "https://line.me/R/ti/p/@2face",
+  href = INSTAGRAM_URL,
 }: LineButtonProps) {
   const sizes = {
     sm: "px-4 py-2 text-sm",
@@ -29,8 +30,8 @@ export default function LineButton({
       whileTap={{ scale: 0.97 }}
       className={`inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-bold rounded-full transition-colors pulse-red ${sizes[size]} ${className}`}
     >
-      <MessageCircle size={size === "lg" ? 22 : 18} />
-      LINEで予約する
+      <Instagram size={size === "lg" ? 22 : 18} />
+      Instagramで予約相談
     </motion.a>
   );
 }

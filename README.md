@@ -32,25 +32,16 @@ npm start
 
 ## カスタマイズポイント
 
-### 1. Googleカレンダー埋め込み
-`app/components/sections/Calendar.tsx` の以下の部分を編集：
-- `YOUR_CALENDAR_ID` をGoogleカレンダーのIDに変更
-- オーバーレイの `div` を削除してカレンダーを表示
+### 1. 予約・SNSリンク
+公式InstagramとYouTubeのリンクは `app/siteConfig.ts` の `INSTAGRAM_URL` / `YOUTUBE_URL` で一元管理しています。予約相談はInstagramのDMへ誘導しています。
+LINEやYouTubeを追加する場合は、実際に開ける公式URLを確認してから設定してください。
 
-### 2. LINE公式アカウントURL
-全ファイル内の `https://line.me/R/ti/p/@2face` を実際のLINE公式アカウントURLに変更。
-
-### 3. SNSリンク
-- Instagram: `Footer.tsx` と `Gallery.tsx` のリンクを変更
-- YouTube: `Footer.tsx` のリンクを変更
-
-### 4. 画像
+### 2. 画像
 `Hero.tsx`、`About.tsx` などの `Image` コンポーネントの `src` を
 実際の写真のURLまたはpublicフォルダ内の画像パスに変更してください。
 
-### 5. Googleマップ埋め込み
-`Access.tsx` の iframe src を正確な埋め込みURLに変更してください。
-Google Maps Platform > 地図の埋め込み から取得できます。
+### 3. 集合場所・Googleマップ
+集合場所の住所と地図URLは `app/siteConfig.ts` で一元管理しています。
 
 ---
 
