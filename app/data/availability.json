@@ -6,8 +6,8 @@
   },
   {
     "label": "平日便",
-    "status": "空きあり",
-    "tone": "available"
+    "status": "要相談",
+    "tone": "consult"
   },
   {
     "label": "アカメ便",
