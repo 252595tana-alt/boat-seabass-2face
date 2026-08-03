@@ -7,25 +7,12 @@ const REPO = process.env.GITHUB_REPO || "boat-seabass-2face";
 const BRANCH = process.env.GITHUB_BRANCH || "main";
 const FILE_PATH = "app/data/availability.json";
 
-function unauthorized(message = "パスワードが違います。") {
-  return Response.json({ error: message }, { status: 401 });
-}
-
 export async function GET() {
   return Response.json({ items: availabilityItems }, { headers: { "Cache-Control": "no-store" } });
 }
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
-  const password = String(body?.password ?? "");
-
-  if (!process.env.ADMIN_PASSWORD) {
-    return Response.json({ error: "ADMIN_PASSWORD が未設定です。" }, { status: 500 });
-  }
-
-  if (password !== process.env.ADMIN_PASSWORD) {
-    return unauthorized();
-  }
 
   if (!process.env.GITHUB_TOKEN) {
     return Response.json({ error: "GITHUB_TOKEN が未設定です。" }, { status: 500 });

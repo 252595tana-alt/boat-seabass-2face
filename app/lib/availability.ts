@@ -8,6 +8,12 @@ export type AvailabilityItem = {
   tone: AvailabilityTone;
 };
 
+export const availabilityStatusByTone: Record<AvailabilityTone, string> = {
+  available: "空きあり",
+  consult: "要相談",
+  closed: "満席",
+};
+
 export const availabilityItems = availabilityData as AvailabilityItem[];
 
 export function normalizeAvailabilityItems(items: unknown): AvailabilityItem[] {
@@ -22,18 +28,17 @@ export function normalizeAvailabilityItems(items: unknown): AvailabilityItem[] {
 
     const record = item as Record<string, unknown>;
     const label = String(record.label ?? "").trim();
-    const status = String(record.status ?? "").trim();
     const tone = String(record.tone ?? "available") as AvailabilityTone;
 
-    if (!label || !status) {
-      throw new Error("表示名と状態を入力してください。");
+    if (!label) {
+      throw new Error("表示名を入力してください。");
     }
 
     if (!["available", "consult", "closed"].includes(tone)) {
       throw new Error("状態カラーが正しくありません。");
     }
 
-    return { label, status, tone };
+    return { label, status: availabilityStatusByTone[tone], tone };
   });
 
   if (normalized.length !== 3) {

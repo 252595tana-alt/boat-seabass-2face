@@ -2,7 +2,7 @@
 
 import { Save } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
-import type { AvailabilityItem, AvailabilityTone } from "../lib/availability";
+import { availabilityStatusByTone, type AvailabilityItem, type AvailabilityTone } from "../lib/availability";
 
 const toneOptions: { value: AvailabilityTone; label: string }[] = [
   { value: "available", label: "緑：空きあり" },
@@ -17,7 +17,6 @@ const defaultItems: AvailabilityItem[] = [
 ];
 
 export default function AdminPage() {
-  const [password, setPassword] = useState("");
   const [items, setItems] = useState<AvailabilityItem[]>(defaultItems);
   const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
@@ -35,9 +34,16 @@ export default function AdminPage() {
 
   const updateItem = (index: number, field: keyof AvailabilityItem, value: string) => {
     setItems((current) =>
-      current.map((item, itemIndex) =>
-        itemIndex === index ? { ...item, [field]: field === "tone" ? (value as AvailabilityTone) : value } : item,
-      ),
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+
+        if (field === "tone") {
+          const tone = value as AvailabilityTone;
+          return { ...item, tone, status: availabilityStatusByTone[tone] };
+        }
+
+        return { ...item, [field]: value };
+      }),
     );
   };
 
@@ -49,7 +55,7 @@ export default function AdminPage() {
     const response = await fetch("/api/admin/availability", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password, items }),
+      body: JSON.stringify({ items }),
     });
     const data = await response.json().catch(() => ({}));
 
@@ -68,40 +74,19 @@ export default function AdminPage() {
         <p className="mb-3 font-heading text-xs font-bold tracking-[0.28em] text-brand-red">2FACE ADMIN</p>
         <h1 className="font-heading text-3xl font-black tracking-wide md:text-5xl">直近の空き状況</h1>
         <p className="mt-4 text-sm leading-7 text-gray-400">
-          上部の3行だけを手動で変更します。保存後、本番サイトへの反映には少し時間がかかります。
+          上部の3行だけを手動で変更します。色を選ぶと状態文言も自動で変わります。保存後、本番サイトへの反映には少し時間がかかります。
         </p>
 
         <form onSubmit={onSubmit} className="mt-8 space-y-5 rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/40 md:p-7">
-          <label className="block">
-            <span className="text-xs font-bold text-gray-300">管理パスワード</span>
-            <input
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              className="mt-2 w-full rounded-xl border border-white/10 bg-black px-4 py-3 text-white outline-none transition-colors focus:border-brand-red"
-              autoComplete="current-password"
-              required
-            />
-          </label>
-
           {items.map((item, index) => (
             <div key={index} className="rounded-xl border border-white/10 bg-black/60 p-4">
               <p className="mb-3 font-heading text-xs font-black tracking-[0.2em] text-gray-500">ROW {index + 1}</p>
-              <div className="grid gap-3 md:grid-cols-[1fr_1fr_150px]">
+              <div className="grid gap-3 md:grid-cols-[1fr_150px_120px]">
                 <label className="block">
                   <span className="text-xs font-bold text-gray-300">表示名</span>
                   <input
                     value={item.label}
                     onChange={(event) => updateItem(index, "label", event.target.value)}
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-zinc-950 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-brand-red"
-                    required
-                  />
-                </label>
-                <label className="block">
-                  <span className="text-xs font-bold text-gray-300">状態文言</span>
-                  <input
-                    value={item.status}
-                    onChange={(event) => updateItem(index, "status", event.target.value)}
                     className="mt-2 w-full rounded-xl border border-white/10 bg-zinc-950 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-brand-red"
                     required
                   />
@@ -120,6 +105,12 @@ export default function AdminPage() {
                     ))}
                   </select>
                 </label>
+                <div className="block">
+                  <span className="text-xs font-bold text-gray-300">表示文言</span>
+                  <div className="mt-2 rounded-xl border border-white/10 bg-zinc-950 px-4 py-3 text-sm font-bold text-white">
+                    {item.status}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
