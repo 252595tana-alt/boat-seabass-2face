@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { LINE_URL } from "../../siteConfig";
 
@@ -15,13 +14,10 @@ export default function MobileCTA() {
   }, []);
 
   return (
-    <AnimatePresence>
+    <>
       {visible && (
-        <motion.div
-          initial={{ y: 80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 80, opacity: 0 }}
-          transition={{ duration: 0.3 }}
+        <div
+
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
         >
           <div className="bg-black/95 backdrop-blur-md border-t border-white/10 px-4 py-3 safe-area-bottom">
@@ -35,8 +31,8 @@ export default function MobileCTA() {
               LINEで予約相談
             </a>
           </div>
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 }

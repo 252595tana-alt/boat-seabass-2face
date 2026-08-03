@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "../ui/SectionHeading";
 import { Users, Shield, MapPin, Award } from "lucide-react";
@@ -36,11 +35,8 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+          <div
+
             className="relative h-80 md:h-[480px] rounded-2xl overflow-hidden"
           >
             <Image
@@ -55,14 +51,11 @@ export default function About() {
                 2FACE
               </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
+
           >
             <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8">
               徳島・吉野川をメインフィールドに、
@@ -79,12 +72,9 @@ export default function About() {
             {/* Feature Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((item, i) => (
-                <motion.div
+                <div
                   key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+
                   className="bg-brand-gray border border-white/5 rounded-xl p-4 card-hover group"
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -94,11 +84,11 @@ export default function About() {
                     <h3 className="text-white font-bold text-sm">{item.title}</h3>
                   </div>
                   <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

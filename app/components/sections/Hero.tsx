@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Calendar, CheckCircle, HelpCircle, Instagram, MessageCircle, Youtube } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { availabilityItems } from "../../lib/availability";
@@ -65,23 +64,23 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-16">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
           <div className="flex-1 text-center lg:text-left">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-2">
+            <div className="mb-2">
               <span className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/25 px-4 py-2 font-heading text-[10px] font-bold tracking-[0.3em] text-gray-200 backdrop-blur-md">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-red shadow-[0_0_12px_rgba(230,51,41,0.9)]" />
                 TOKUSHIMA / YOSHINOGAWA
               </span>
-            </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="gradient-text mt-5 font-heading font-black text-7xl md:text-8xl lg:text-[9rem] leading-[0.82] tracking-[0.04em] mb-8 drop-shadow-2xl">
+            </div>
+            <h1 className="gradient-text mt-5 font-heading font-black text-7xl md:text-8xl lg:text-[9rem] leading-[0.82] tracking-[0.04em] mb-8 drop-shadow-2xl">
               2FACE
-            </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
+            </h1>
+            <p className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
               徳島・吉野川で、
-            </motion.p>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="text-2xl md:text-3xl font-bold text-white leading-tight mb-10">
+            </p>
+            <p className="text-2xl md:text-3xl font-bold text-white leading-tight mb-10">
               一生忘れられない一匹を。
-            </motion.p>
+            </p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-bold text-lg px-8 py-4 rounded-full transition-all pulse-red shadow-lg shadow-brand-red/30">
                 <MessageCircle size={22} />
                 LINEで予約相談
@@ -89,18 +88,18 @@ export default function Hero() {
               <button onClick={() => document.querySelector("#plan")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-medium text-base px-8 py-4 rounded-full transition-all backdrop-blur-sm">
                 ガイドプランを見る
               </button>
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.9 }} className="flex gap-4 mt-8 justify-center lg:justify-start">
+            <div className="flex gap-4 mt-8 justify-center lg:justify-start">
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1">
                 <Instagram size={14} /> @boat_seabass_2face
               </a>
               <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-xs transition-colors font-heading tracking-wider inline-flex items-center gap-1" aria-label="YouTube公式チャンネル">
                 <Youtube size={14} /> YouTube
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="mt-8 flex items-center justify-center gap-5 text-left lg:justify-start">
+            <div className="mt-8 flex items-center justify-center gap-5 text-left lg:justify-start">
               {[
                 ["27FT", "CUSTOM BOAT"],
                 ["MAX 7", "CAPACITY"],
@@ -111,10 +110,10 @@ export default function Hero() {
                   <p className="mt-0.5 text-[8px] font-bold tracking-[0.2em] text-gray-500">{label}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="w-full lg:w-80 shrink-0">
+          <div className="w-full lg:w-80 shrink-0">
             <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-black/65 p-5 shadow-2xl shadow-black/40 backdrop-blur-xl">
               <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-red/20 blur-3xl" />
               <div className="relative">
@@ -152,14 +151,14 @@ export default function Hero() {
               </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="text-gray-400 text-xs tracking-widest font-heading uppercase">Scroll</span>
         <div className="w-px h-12 bg-gradient-to-b from-brand-red to-transparent" />
-      </motion.div>
+      </div>
     </section>
   );
 }

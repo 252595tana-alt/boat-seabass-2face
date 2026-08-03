@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "../ui/SectionHeading";
 
@@ -43,12 +42,9 @@ export default function TargetFish() {
 
         <div className="grid grid-cols-2 gap-3 md:gap-6">
           {fish.map((f, i) => (
-            <motion.div
+            <div
               key={f.en}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
+
               className="group relative aspect-[16/10] overflow-hidden rounded-[18px] border border-white/10 bg-black shadow-[0_18px_55px_rgba(0,0,0,0.42)] md:rounded-[24px]"
             >
               <Image
@@ -76,7 +72,7 @@ export default function TargetFish() {
                   {f.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

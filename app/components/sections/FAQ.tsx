@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
 import { Plus, Minus } from "lucide-react";
 
@@ -50,12 +49,9 @@ export default function FAQ() {
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
+
               className="bg-brand-dark border border-white/5 rounded-2xl overflow-hidden"
             >
               <button
@@ -77,13 +73,10 @@ export default function FAQ() {
                 </div>
               </button>
 
-              <AnimatePresence>
+              <>
                 {open === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
+                  <div
+
                   >
                     <div className="px-5 pb-5 border-t border-white/5 pt-4">
                       <div className="flex gap-3">
@@ -95,10 +88,10 @@ export default function FAQ() {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
-            </motion.div>
+              </>
+            </div>
           ))}
         </div>
 

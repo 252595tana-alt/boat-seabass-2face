@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "../ui/SectionHeading";
 
@@ -17,11 +16,8 @@ export default function Captain() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+          <div
+
             className="relative"
           >
             <div className="relative h-[480px] md:h-[560px] rounded-2xl overflow-hidden">
@@ -44,14 +40,11 @@ export default function Captain() {
             {/* Decorative red corner */}
             <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-brand-red rounded-tl-xl" />
             <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-brand-red rounded-br-xl" />
-          </motion.div>
+          </div>
 
           {/* Bio */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
+
           >
             <blockquote className="text-brand-red font-heading font-black text-2xl md:text-3xl leading-tight mb-8 border-l-4 border-brand-red pl-5">
               &ldquo;一生忘れられない一匹&rdquo;
@@ -96,7 +89,7 @@ export default function Captain() {
             >
               予約・お問い合わせはこちら
             </button>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

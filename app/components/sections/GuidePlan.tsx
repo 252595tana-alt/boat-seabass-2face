@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Clock, Fish, Sunrise, Star, Anchor } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 
@@ -51,12 +50,9 @@ export default function GuidePlan() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
           {plans.map((plan, i) => (
-            <motion.div
+            <div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+
               className={`relative rounded-2xl p-6 border card-hover group transition-all ${
                 plan.highlight
                   ? "bg-brand-red border-brand-red text-white"
@@ -118,7 +114,7 @@ export default function GuidePlan() {
               >
                 詳しく見る →
               </button>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

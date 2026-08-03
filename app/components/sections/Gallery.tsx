@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import { INSTAGRAM_URL } from "../../siteConfig";
@@ -35,15 +34,12 @@ export default function Gallery() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
           {catches.map((item, index) => (
-            <motion.a
+            <a
               key={item.src}
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+
               className="group relative h-80 overflow-hidden rounded-2xl border border-white/5 bg-brand-dark"
             >
               <Image
@@ -60,7 +56,7 @@ export default function Gallery() {
                 </p>
                 <p className="mt-1 text-lg font-bold text-white">{item.title}</p>
               </div>
-            </motion.a>
+            </a>
           ))}
         </div>
 

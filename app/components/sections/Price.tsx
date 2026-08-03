@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
 import { MessageCircle, Info } from "lucide-react";
 import { LINE_URL } from "../../siteConfig";
@@ -61,12 +60,9 @@ export default function Price() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
-            <motion.div
+            <div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+
               className={`relative rounded-2xl overflow-hidden border card-hover ${
                 plan.highlight
                   ? "border-brand-red bg-gradient-to-b from-brand-red/10 to-brand-dark"
@@ -109,16 +105,13 @@ export default function Price() {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Notes */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+        <div
+
           className="mt-8 bg-brand-dark rounded-2xl border border-white/5 p-6"
         >
           <h4 className="text-white font-bold mb-3 flex items-center gap-2">
@@ -131,7 +124,7 @@ export default function Price() {
             <li>・ 5名以上の場合は別途お見積りとなります</li>
             <li>・ キャンセル規定はFAQをご確認ください</li>
           </ul>
-        </motion.div>
+        </div>
 
         {/* CTA */}
         <div className="text-center mt-10">

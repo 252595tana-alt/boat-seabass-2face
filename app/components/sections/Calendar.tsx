@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MessageCircle, Calendar as CalIcon } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import { LINE_URL } from "../../siteConfig";
@@ -12,11 +11,8 @@ export default function CalendarSection() {
         <SectionHeading en="AVAILABILITY" ja="空き状況・予約相談" />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <div
+
             className="lg:col-span-2"
           >
             <div className="bg-brand-gray rounded-2xl overflow-hidden border border-white/5">
@@ -48,14 +44,11 @@ export default function CalendarSection() {
             <p className="text-gray-500 text-xs mt-3">
               ※ 最新の情報はLINEにてお問い合わせください。
             </p>
-          </motion.div>
+          </div>
 
           {/* Sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+          <div
+
             className="space-y-4"
           >
             <div className="bg-brand-gray border border-white/5 rounded-2xl p-5">
@@ -90,7 +83,7 @@ export default function CalendarSection() {
                 LINEで予約・お問い合わせ
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

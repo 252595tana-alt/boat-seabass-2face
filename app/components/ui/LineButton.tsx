@@ -1,7 +1,6 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
 import { LINE_URL } from "../../siteConfig";
 
 interface LineButtonProps {
@@ -22,16 +21,15 @@ export default function LineButton({
   };
 
   return (
-    <motion.a
+    <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.97 }}
+
       className={`inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white font-bold rounded-full transition-colors pulse-red ${sizes[size]} ${className}`}
     >
       <MessageCircle size={size === "lg" ? 22 : 18} />
       LINEで予約相談
-    </motion.a>
+    </a>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
 import { MapPin, Car, Clock } from "lucide-react";
 import { MAP_EMBED_URL, MAP_URL, MARINA_ADDRESS } from "../../siteConfig";
@@ -20,11 +19,8 @@ export default function Access() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Map */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+          <div
+
             className="rounded-2xl overflow-hidden border border-white/5"
           >
             <iframe
@@ -37,14 +33,11 @@ export default function Access() {
               referrerPolicy="no-referrer-when-downgrade"
               title="四国マリーナ マップ"
             />
-          </motion.div>
+          </div>
 
           {/* Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+          <div
+
           >
             <div className="bg-brand-gray border border-white/5 rounded-2xl p-6 mb-6">
               <h3 className="text-white font-bold text-lg mb-5 flex items-center gap-2">
@@ -84,7 +77,7 @@ export default function Access() {
                 集合時間の詳細はLINEにてご確認ください。
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

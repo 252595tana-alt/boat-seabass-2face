@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 import { LINE_URL } from "../../siteConfig";
 
@@ -67,9 +66,9 @@ export default function Navigation() {
         </div>
       </div>
 
-      <AnimatePresence>
+      <>
         {menuOpen && (
-          <motion.div initial={{ opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -12, scale: 0.98 }} transition={{ duration: 0.2 }} className="pointer-events-auto mx-auto mt-2 max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-black/95 p-3 shadow-2xl backdrop-blur-xl xl:hidden">
+          <div className="pointer-events-auto mx-auto mt-2 max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-black/95 p-3 shadow-2xl backdrop-blur-xl xl:hidden">
             <nav className="grid grid-cols-2 gap-1 md:grid-cols-4">
               {navItems.map((item) => (
                 <button key={item.href} onClick={() => handleClick(item.href)} className="rounded-xl px-4 py-3 text-left text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white">
@@ -80,9 +79,9 @@ export default function Navigation() {
             <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-brand-red px-5 py-3 text-sm font-bold text-white md:hidden">
               <MessageCircle size={17} /> LINEで予約相談
             </a>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </>
     </header>
   );
 }
