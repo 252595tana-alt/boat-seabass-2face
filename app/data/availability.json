@@ -1,0 +1,17 @@
+[
+  {
+    "label": "今週末　ナイト便",
+    "status": "空きあり",
+    "tone": "available"
+  },
+  {
+    "label": "平日便",
+    "status": "予約受付中",
+    "tone": "available"
+  },
+  {
+    "label": "アカメ便",
+    "status": "要相談",
+    "tone": "consult"
+  }
+]

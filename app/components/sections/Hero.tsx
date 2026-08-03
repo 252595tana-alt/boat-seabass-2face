@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { Calendar, CheckCircle, HelpCircle, Instagram, MessageCircle, Youtube } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { availabilityItems } from "../../lib/availability";
 import { INSTAGRAM_URL, LINE_URL, YOUTUBE_URL } from "../../siteConfig";
 
-const availability = [
-  { label: "今週末　ナイト便", status: "空きあり", color: "text-green-400", icon: CheckCircle },
-  { label: "平日便", status: "予約受付中", color: "text-green-400", icon: CheckCircle },
-  { label: "アカメ便", status: "要相談", color: "text-yellow-400", icon: HelpCircle },
-];
+const toneStyle = {
+  available: { color: "text-green-400", icon: CheckCircle },
+  consult: { color: "text-yellow-400", icon: HelpCircle },
+  closed: { color: "text-brand-red", icon: HelpCircle },
+};
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -128,15 +129,20 @@ export default function Hero() {
                   </span>
                 </div>
               <div className="space-y-2.5">
-                {availability.map((item) => (
+                {availabilityItems.map((item) => {
+                  const itemStyle = toneStyle[item.tone];
+                  const Icon = itemStyle.icon;
+
+                  return (
                   <div key={item.label} className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.04] px-3 py-2.5">
                     <span className="text-gray-200 text-xs">{item.label}</span>
                     <div className="flex items-center gap-1.5">
-                      <item.icon size={14} className={item.color} />
-                      <span className={`text-xs font-bold ${item.color}`}>{item.status}</span>
+                      <Icon size={14} className={itemStyle.color} />
+                      <span className={`text-xs font-bold ${itemStyle.color}`}>{item.status}</span>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
               <a href="#calendar" className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-brand-red px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-red/20 transition-all hover:bg-brand-red-dark hover:shadow-brand-red/40">
                 <Calendar size={16} /> 空き状況を確認
